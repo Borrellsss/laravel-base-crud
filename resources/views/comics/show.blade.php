@@ -38,4 +38,14 @@
             </p>
         </div>
     </div>
+    <div class="edit-comic">
+        <a href="{{route('comics.edit', ['comic' => $comic['id']])}}">edit</a>
+    </div>
+    <div class="delete-comic">
+        <form action="{{route('comics.destroy', ['comic' => $comic->id])}}" method="POST">
+            @csrf
+            @method('DELETE')
+            <input type="submit" value="delete" onclick="return confirm('do you realy want to delete this comic from your list?')">
+        </form>
+    </div>
 @endsection
